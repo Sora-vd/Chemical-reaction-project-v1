@@ -1,0 +1,20 @@
+{
+  "network": { "t_start": 0, "t_end": 50, "dt": 0.1 },
+
+  "species": [
+    { "id": "H2O2", "name": "Hydrogen peroxide", "c0": 1.0, "formula": "H2O2", "state": "aq" },
+    { "id": "H2O",  "name": "Water",             "c0": 0.0, "formula": "H2O",  "state": "l"  },
+    { "id": "O2",   "name": "Oxygen",            "c0": 0.0, "formula": "O2",   "state": "g"  }
+  ],
+
+  "reactions": [
+    {
+      "id": "h2o2_decomposition",
+      "type": "first_order",
+      "rate_constant": 1.5e-3,
+      "reactant": "H2O2",
+      "stoichiometry": { "H2O2": -1, "H2O": 1, "O2": 0.5 }
+    }
+  ]
+}
+
