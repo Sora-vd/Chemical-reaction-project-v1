@@ -4,10 +4,8 @@ A Python project for representing chemical species, reactions, and reaction netw
 ## MVP Goals (Week 2)
 - Define `Species`
 - Define `Reaction` with stoichiometry
-- Define `State` (amounts of species)
 - Define `ReactionNetwork` (apply reaction extent, basic validation)
-- Load a network from JSON (`data/sample_network.json`)
-- Basic unit tests with pytest
+- Define `Visualisation` (plot dC/dt)
 
 ## Quick Start
 ```bash
