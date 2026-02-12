@@ -7,7 +7,7 @@ README.md
 □ Installation instructions
 □ Usage examples with sample data
 □ Dependencies listed
-□ Screenshots or example outputsss
+□ Screenshots or example outputs
 
 ## MVP Goals (Week 2)
 - Define `Species`
