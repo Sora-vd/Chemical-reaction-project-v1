@@ -1,16 +1,16 @@
 import pandas as pd
-molecules = pd.read_csv("/Users/emma/Documents/Chemical-reaction-project-v1/input.csv", index_col=0)
+molecules = pd.read_csv("/Users/emma/Documents/Chemical-reaction-project-v1/input.csv", index_col="formula")
 
 class Species: 
-    
-    def __init__(self, name, c0, formula=None, state=None, order=0, rate_constant=None):
-        self.name = name
-        self._c0 = c0
-        self.ct = c0
+
+    def __init__(self, formula):
+        self.name = molecules.loc[formula, "compound"]
+        self._c0 = molecules.loc[formula, "c0"]
+        self.ct = self._c0
         self.formula = formula
-        self.state = state
-        self.order = order
-        self.k = rate_constant
+        self.state = molecules.loc[formula, "state"]
+        self.order = molecules.loc[formula, "order"]
+        self.k = None
 
     @property 
     def c0(self): 
@@ -27,4 +27,10 @@ class Species:
         self.ct = self._c0
 
     def __repr__(self):
-        return f"Species(name={self.name}, formula={self.formula}, state={self.state}, c0={self._c0}, ct={self.ct})"
+        return f"Species(name={self.name}, formula={self.formula}, state={self.state}, c0={self._c0}, ct={self.ct}, order={self.order})"
+    
+
+
+# test class
+water = Species("H2O") 
+print(f"water: {water}")
