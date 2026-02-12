@@ -10,6 +10,13 @@ class Species:
     def c0(self): 
         return self._c0 
     
+    @c0.setter
+    def c0(self, value):
+        if value < 0:
+            raise ValueError("Initial concentration cannot be negative")
+        self._c0 = value
+        self.ct = value
+    
     def reset(self):
         self.ct = self._c0
 
