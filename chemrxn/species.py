@@ -8,6 +8,8 @@ class Species:
         self.ct = c0
         self.formula = formula
         self.state = state
+        self.order = order
+        self.k = rate_constant
 
     @property 
     def c0(self): 
