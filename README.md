@@ -20,3 +20,4 @@ README.md
 - Define `Reaction` with stoichiometry
 - Define `ReactionNetwork` (apply reaction extent, basic validation)
 - Define `Visualisation` (plot dC/dt)
+asdfgfghj
