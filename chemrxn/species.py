@@ -1,5 +1,6 @@
 import pandas as pd
-molecules = pd.read_csv("/Users/emma/Documents/Chemical-reaction-project-v1/input.csv", index_col="formula")
+import os
+molecules = pd.read_csv(os.getcwd() + input.csv, index_col="formula")
 
 class Species: 
 
