@@ -9,9 +9,13 @@ First-order reaction: ln(A)t= -kt + ln(A)0
 Second-order reaction: 1/(A)t = kt + 1/(A)0
 
 Variables:
+
 (A)t = Concentration at time t
+
 (A)0 = Initial Concentration
+
 k = Rate constant
+
 t = time
 
 
