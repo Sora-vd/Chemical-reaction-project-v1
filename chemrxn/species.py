@@ -1,4 +1,7 @@
 class Species: 
+    import pandas as pd
+    molecules = pd.read_csv("", index_col=0)
+    
     def __init__(self, name, c0, formula=None, state=None):
         self.name = name
         self._c0 = c0
