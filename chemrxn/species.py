@@ -1,6 +1,7 @@
+import pandas as pd
+molecules = pd.read_csv("/Users/emma/Documents/Chemical-reaction-project-v1/input.csv", index_col=0)
+
 class Species: 
-    import pandas as pd
-    molecules = pd.read_csv("", index_col=0)
     
     def __init__(self, name, c0, formula=None, state=None, order=0, rate_constant=None):
         self.name = name
