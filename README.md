@@ -64,21 +64,24 @@ t = time
 
 1. Clone the repository:
 
+```bash
 git clone https://github.com/yourusername/chemical-reaction-simulator.git
 cd chemical-reaction-simulator
+```
 
 2. Install dependencies
 
+```bash
 pip install -r requirements.txt
-
+```
 If you do not have a requirements file: 
-
+```bash
 pip install numpy scipy matplotlib
-
+```
 ## Usage Example 
 
 ### First Order Reaction Example:
-
+```bash
 from species import Species
 from reaction import Reaction
 from network import ReactionNetwork
@@ -108,9 +111,7 @@ results = network.simulate()
 #Plot results
 network.plot_concentrations(results)
 network.plot_rates(results)
-
-## Project Structure
-
+```
 ## Project Structure
 
 ```bash
@@ -143,7 +144,7 @@ Stores and validates one chemical species.
 
 - ct (current concentration)
 
-Methods:
+#### Methods:
 
 - c0 property + setter
 
@@ -164,7 +165,7 @@ Defines one reaction and computes its rate.
 
 - orders (power-law orders)
 
-Rate rule:
+#### Rate rule:
 
 If orders is empty:
 
@@ -198,7 +199,7 @@ Responsible for:
 
 - reactions
 
-Methods:
+#### Methods:
 
 - rhs(t, y)
 
