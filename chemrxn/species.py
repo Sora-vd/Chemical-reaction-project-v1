@@ -5,7 +5,7 @@ molecules = pd.read_csv(os.getcwd() + input.csv, index_col="formula")
 class Species: 
     """A class to represent a chemical species in a reaction."""
 
-    def __init__(self, name, c0, formula=None, state=None, order=0, rate_constant=None):
+    def __init__(self, name, c0, formula=None, state=None):
         self.name = name
         self.formula = formula
         self.state = state
