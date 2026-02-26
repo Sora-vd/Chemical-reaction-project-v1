@@ -33,7 +33,7 @@ class Species:
         self.ct = new_ct
     
     def __repr__(self):
-        return f"Species(name={self.name}, formula={self.formula}, state={self.state}, c0={self._c0}, ct={self.ct}, order={self.order})"
+        return f"Species(name={self.name}, formula={self.formula}, state={self.state}, c0={self._c0})"
     
 
 
