@@ -237,7 +237,7 @@ Keep integration logic inside ReactionNetwork
 
 MIT License
 
-Copyright (c) [year] [fullname]
+Copyright (c) [2026] [Gunes Beleli, Karolina Kuipec, Emma Bornemann, Sora van de Wiel]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
