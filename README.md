@@ -111,6 +111,9 @@ network.plot_rates(results)
 
 ## Project Structure
 
+## Project Structure
+
+```bash
 chemical-reaction-simulator/
 │
 ├── species.py      # Species class (data only)
@@ -121,7 +124,7 @@ chemical-reaction-simulator/
 ├── requirements.txt
 ├── README.md
 └── LICENSE
-
+```
 ## Architecture Overview
 
 ### Species (species.py)
@@ -233,7 +236,7 @@ Keep integration logic inside ReactionNetwork
 
 ? 
 
-Authors
+## Authors
 
 - Gunes Beleli
 - Karolina Kuipec
