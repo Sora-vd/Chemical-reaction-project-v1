@@ -20,7 +20,6 @@ class Species:
         self.formula = formula 
         self.state = molecules.loc[formula, "state"]
         
-    #initial concentration 
     @property 
     def c0(self): 
         """getter method of initial concentration
