@@ -1,6 +1,6 @@
 import pandas as pd
 import os
-molecules = pd.read_csv(os.getcwd() + input.csv, index_col="formula")
+molecules = pd.read_csv(os.getcwd() + "/input.csv", index_col="formula")
 
 class Species: 
     """A class to represent a chemical species in a reaction."""
