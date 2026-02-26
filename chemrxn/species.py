@@ -1,15 +1,14 @@
 import pandas as pd
 import os
-molecules = pd.read_csv(os.getcwd() + "/input.csv", index_col="formula")
+molecules = pd.read_csv(os.getcwd() + input.csv, index_col="formula")
 
 class Species: 
     """A class to represent a chemical species in a reaction."""
 
-    def __init__(self, formula):
-        self.name = molecules.loc[formula, "compound"]
+    def __init__(self, name, c0, formula=None):
+        self.name = name
         self.formula = formula
-        self.state = molecules.loc[formula, "state"]
-        self._c0 = molecules.loc[formula, "c0"] #use property setter to validate c0
+        self._c0 = c0 #use property setter to validate c0
         
     #initial concentration 
     @property 
@@ -33,7 +32,7 @@ class Species:
         self.ct = new_ct
     
     def __repr__(self):
-        return f"Species(name={self.name}, formula={self.formula}, state={self.state}, c0={self._c0})"
+        return f"Species(name={self.name}, formula={self.formula}, state={self.state}, c0={self._c0}, ct={self.ct}, order={self.order})"
     
 
 
