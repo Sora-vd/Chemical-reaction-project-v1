@@ -20,6 +20,21 @@ class Reaction:
         """Returns a dictionary of products with their stoichiometric coefficients (positive values)"""
         return {k: v for k, v in self.stoich.items() if v > 0}
 
+    def rate(self, species_dict):
+        """mass-action rate law: rate = k * product of [C_i^order_i] for reactants"""
+        rate = self.k
+        for name, order in self.orders.items():
+            rate *= species_dict[name] ** order
+        return rate
+
+    def dc_dt(self, species_dict):
+        """Return contribution of this reaction to dC/dt for each species as a dictionary"""
+        r = self.rate(species_dict)
+        dc_dt = {}
+        for name, coef in self.stoich.items():
+            dc_dt[name] = coef * rate
+        return dc_dt
+
     def __repr__(self):
         """Returns a readable reaction string representation, e.g. '2A + B -> C (k=0.1)'"""
         #format reactants 
