@@ -6,10 +6,10 @@ class Species:
     """A class to represent a chemical species in a reaction."""
 
     def __init__(self, name, c0, formula=None, state=None):
-        self.name = name
+        self.name = molecules.loc[formula, "compound"]
         self.formula = formula
-        self.state = state
-        self._c0 = c0 #use property setter to validate c0
+        self.state = molecules.loc[formula, "state"]
+        self._c0 = molecules.loc[formula, "c0"] #use property setter to validate c0
         
     #initial concentration 
     @property 
