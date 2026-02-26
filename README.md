@@ -1,6 +1,6 @@
-Chemical reaction modelling and graphing tool.
+# Chemical Reaction Simulator
 
-Modelling the concentration of a reactant using the first and second order reactions.
+**A Python project for simulating chemical reactions and tracking concentration over time**
 
 The program aims to help efficiently solve and model the first and second-order reactions of a chemical reactant when the initial concentration of the reactant is known. This program can help students and teachers gain a better understanding of reaction rates and kinetics. When the initial concentration and the reactant are registered into the system, the program will model both:
 
