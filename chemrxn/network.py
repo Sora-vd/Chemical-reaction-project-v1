@@ -4,7 +4,6 @@ matplotlib.use("TkAgg")
 import numpy as np 
 import matplotlib.pyplot as plt
 
-import reaction
 
 class ReactionNetwork: 
     """Represents a network of chemical reactions."""
@@ -87,6 +86,8 @@ class ReactionNetwork:
             #+= modifies array in place - loop correctly stores value before updating & ensures all updates happen simultaneously
 
     def plot_all(self):
+        plt.close("all")
+
         fig, axs = plt.subplots(2, 1, figsize=(10, 8))
 
         # Concentration plot
@@ -102,9 +103,11 @@ class ReactionNetwork:
 
         # Rate plot
         for i, rate_list in enumerate(self.rate_history):
+            reaction = self.reactions[i]
+            
             axs[1].plot(self.time_points,
                     rate_list,
-                    label=f"Reaction {i+1}")
+                    label=str("TEST LABEL"))
         axs[1].set_title("Rate vs Time")
         axs[1].set_xlabel("Time")
         axs[1].set_ylabel("Rate")
@@ -113,6 +116,6 @@ class ReactionNetwork:
         
         plt.tight_layout()
         plt.show()
-        input("Press Enter to close plots...")
+      
 
         

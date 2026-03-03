@@ -18,6 +18,7 @@ def load_species(filepath):
 
 
 def build_reaction_from_csv(df):
+
     """
     Builds H2O2 decomposition reaction:
     2 H2O2 -> 2 H2O + O2
@@ -29,6 +30,9 @@ def build_reaction_from_csv(df):
     # Extract reaction order
     order = float(df.loc["H2O2", "order"])
 
+    #reaction name for optional use in plotting and debugging
+    reaction_name = df.loc["H2O2", "reaction_name"]
+
     stoich = {
         "H2O2": -2,
         "H2O": 2,
@@ -39,12 +43,18 @@ def build_reaction_from_csv(df):
         "H2O2": order
     }
 
-    return Reaction(stoich=stoich, k=k, orders=orders)
+    return Reaction(
+        stoich=stoich, 
+        k=k, 
+        orders=orders, 
+        name=str(reaction_name)
+        )
 
 
 def main():
 
-    filepath = os.path.join(os.getcwd(), "input.csv")
+    current_dir = os.path.dirname(__file__)
+    filepath = os.path.join(current_dir, "input.csv")
 
     species, df = load_species(filepath)
 

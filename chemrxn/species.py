@@ -1,6 +1,10 @@
 import pandas as pd
 import os
-molecules = pd.read_csv(os.getcwd() + "/input.csv", index_col="formula")
+
+current_dir = os.path.dirname(__file__) #get the directory of the current file to ensure the code works regardless of where it's run from
+csv_path = os.path.join(current_dir, "input.csv") #load the input CSV file containing species information. The CSV should have columns: formula, compound, c0, state, k, order, reaction_name
+
+molecules = pd.read_csv(csv_path, index_col="formula") #load the CSV into a pandas DataFrame for easy access to species properties based on their formula. The index is set to "formula" for easy lookup of species properties by their formula.
 
 class Species: 
     """A class to represent a chemical species in a reaction."""

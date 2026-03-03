@@ -1,7 +1,7 @@
 class Reaction:
     """Represents a single chemical reaction."""
 
-    def __init__(self, stoich, k, orders=None):
+    def __init__(self, stoich, k, orders=None, name=None):
         """parameters: 
         stoich (dict of reactant/product names to stoichiometric coefficients, positive for products, negative for reactants), 
         k (float rate constant), 
@@ -9,6 +9,7 @@ class Reaction:
         self.stoich = stoich
         self.k = float(k) #store as float to ensure consistent type for rate calculations
         self.orders = orders or {}
+        self.name = name
 
     @property
     def reactants(self):
