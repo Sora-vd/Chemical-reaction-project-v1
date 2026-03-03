@@ -69,6 +69,9 @@ class ReactionNetwork:
         for t in self.time_points:
             #store current concentrations
             for i, name in enumerate(self._names):
+                self.species[name].ct = concentrations[i]
+
+            for i, name in enumerate(self._names):
                 self.concentration_history[name].append(concentrations[i])
            
             #compute and store current reaction rates
@@ -83,28 +86,33 @@ class ReactionNetwork:
             concentrations += dCdt * self.dt 
             #+= modifies array in place - loop correctly stores value before updating & ensures all updates happen simultaneously
 
-    def plot(self):
-        """plot concentration profiles over time for all species"""
-        plt.figure(figsize=(10, 6))
+    def plot_all(self):
+        fig, axs = plt.subplots(2, 1, figsize=(10, 8))
+
+        # Concentration plot
         for name in self._names:
-            plt.plot(self.time_points, self.concentration_history[name], label=name)
-        plt.xlabel('Time')
-        plt.ylabel('Concentration')
-        plt.title('Concentration Profiles Over Time')
-        plt.legend()
-        plt.grid()
+            axs[0].plot(self.time_points,
+                    self.concentration_history[name],
+                    label=name)
+        axs[0].set_title("Concentration vs Time")
+        axs[0].set_xlabel("Time")
+        axs[0].set_ylabel("Concentration")
+        axs[0].legend()
+        axs[0].grid()
+
+        # Rate plot
+        for i, rate_list in enumerate(self.rate_history):
+            axs[1].plot(self.time_points,
+                    rate_list,
+                    label=f"Reaction {i+1}")
+        axs[1].set_title("Rate vs Time")
+        axs[1].set_xlabel("Time")
+        axs[1].set_ylabel("Rate")
+        axs[1].legend()
+        axs[1].grid()
+        
         plt.tight_layout()
         plt.show()
-    #make sure to call simulate() before plot() to generate data for plotting!
+        input("Press Enter to close plots...")
 
-    def plot_rates(self):
-        """plot reaction rates over time for all reactions"""
-        plt.figure(figsize=(10, 6))
-        for i, rate_list in enumerate(self.rate_history):
-            plt.plot(self.time_points, rate_list, label=f"Reaction {i+1}")
-        plt.xlabel("Time")
-        plt.ylabel("Rate")
-        plt.title("Reaction Rate vs Time")
-        plt.legend()
-        plt.grid()
-        plt.show(block=False)
+        

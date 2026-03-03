@@ -59,9 +59,8 @@ def main():
     )
 
     network.simulate()
-    network.plot()
-    network.plot_rates() 
-
+    network.plot_all()
+    
 
 if __name__ == "__main__":
     main()
