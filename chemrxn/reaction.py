@@ -24,7 +24,7 @@ class Reaction:
         """mass-action rate law: rate = k * product of [C_i^order_i] for reactants"""
         rate = self.k
         for name, order in self.orders.items():
-            rate *= species_dict[name] ** order
+            rate *= species_dict[name].ct ** order
         return rate
 
     def dc_dt(self, species_dict):

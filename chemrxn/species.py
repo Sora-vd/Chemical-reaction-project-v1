@@ -19,6 +19,7 @@ class Species:
         self._c0 = molecules.loc[formula, "c0"] #use property setter to validate c0
         self.formula = formula 
         self.state = molecules.loc[formula, "state"]
+        self.ct = float(self._c0) #current concentration at time t, initialized to initial concentration
         
     @property 
     def c0(self): 
@@ -73,8 +74,3 @@ class Species:
         """
         return f"Species(name={self.name}, formula={self.formula}, state={self.state}, c0={self._c0})"
     
-
-
-# test class
-water = Species("H2O") 
-print(f"water: {water}")
