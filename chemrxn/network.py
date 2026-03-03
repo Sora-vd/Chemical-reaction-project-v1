@@ -101,15 +101,19 @@ class ReactionNetwork:
         axs[0].legend(loc="upper right")
         axs[0].grid()
 
-        # Rate plot
+        # Rate vs Concentration plot
+
+        # Get H2O2 concentration history
+        h2o2_conc = self.concentration_history["H2O2"]
+
         for i, rate_list in enumerate(self.rate_history):
-            reaction = self.reactions[i]
-            
-            axs[1].plot(self.time_points,
-                    rate_list,
-                    label=str(str(reaction.name)))
-        axs[1].set_title("Rate vs Time")
-        axs[1].set_xlabel("Time")
+            axs[1].plot(
+                h2o2_conc,
+                rate_list,
+                label=self.reactions[i].name
+                )
+        axs[1].set_title("Rate vs [H2O2]")
+        axs[1].set_xlabel("[H2O2]")
         axs[1].set_ylabel("Rate")
         axs[1].legend()
         axs[1].grid()
