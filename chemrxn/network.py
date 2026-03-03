@@ -107,7 +107,7 @@ class ReactionNetwork:
             
             axs[1].plot(self.time_points,
                     rate_list,
-                    label=str("TEST LABEL"))
+                    label=str(str(reaction.name)))
         axs[1].set_title("Rate vs Time")
         axs[1].set_xlabel("Time")
         axs[1].set_ylabel("Rate")
