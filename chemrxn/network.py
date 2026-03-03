@@ -98,7 +98,7 @@ class ReactionNetwork:
         axs[0].set_title("Concentration vs Time")
         axs[0].set_xlabel("Time")
         axs[0].set_ylabel("Concentration")
-        axs[0].legend()
+        axs[0].legend(loc="upper right")
         axs[0].grid()
 
         # Rate plot
