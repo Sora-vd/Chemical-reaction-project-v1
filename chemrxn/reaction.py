@@ -32,7 +32,7 @@ class Reaction:
         r = self.rate(species_dict)
         dc_dt = {}
         for name, coef in self.stoich.items():
-            dc_dt[name] = coef * rate
+            dc_dt[name] = coef * r
         return dc_dt
 
     def __repr__(self):

@@ -60,6 +60,7 @@ def main():
 
     network.simulate()
     network.plot()
+    network.plot_rates() 
 
 
 if __name__ == "__main__":

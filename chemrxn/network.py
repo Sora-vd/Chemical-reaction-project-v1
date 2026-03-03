@@ -1,5 +1,10 @@
+import matplotlib
+matplotlib.use("TkAgg")
+
 import numpy as np 
 import matplotlib.pyplot as plt
+
+import reaction
 
 class ReactionNetwork: 
     """Represents a network of chemical reactions."""
@@ -18,6 +23,8 @@ class ReactionNetwork:
 
         #storage of concentration history for each species over time, initialized as empty lists
         self.concentration_history = {name: [] for name in self._names}
+
+        self.rate_history = [[] for _ in self.reactions]
 
     def get_species(self, name):
         return self.species[name]
@@ -63,6 +70,11 @@ class ReactionNetwork:
             #store current concentrations
             for i, name in enumerate(self._names):
                 self.concentration_history[name].append(concentrations[i])
+           
+            #compute and store current reaction rates
+            for i, reaction in enumerate(self.reactions):
+                current_rate = reaction.rate(self.species)
+                self.rate_history[i].append(current_rate)
 
             #compute derivatives
             dCdt = self.dC_dt(t, concentrations)
@@ -84,3 +96,15 @@ class ReactionNetwork:
         plt.tight_layout()
         plt.show()
     #make sure to call simulate() before plot() to generate data for plotting!
+
+    def plot_rates(self):
+        """plot reaction rates over time for all reactions"""
+        plt.figure(figsize=(10, 6))
+        for i, rate_list in enumerate(self.rate_history):
+            plt.plot(self.time_points, rate_list, label=f"Reaction {i+1}")
+        plt.xlabel("Time")
+        plt.ylabel("Rate")
+        plt.title("Reaction Rate vs Time")
+        plt.legend()
+        plt.grid()
+        plt.show(block=False)
