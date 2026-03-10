@@ -153,6 +153,8 @@ Stores and validates one chemical species.
 
 - reset()
 
+- update_concentration(new_ct)
+
 - __repr__() (optional)
 
 
@@ -167,6 +169,20 @@ Defines one reaction and computes its rate.
 - k (rate constant)
 
 - orders (power-law orders)
+
+- name (optional)
+
+#### Methods:
+
+- reactants()
+
+- products()
+
+- rate(species_dict)
+
+- dc_dt()
+
+- __repr__() (optional)
 
 #### Rate rule:
 
@@ -204,13 +220,13 @@ Responsible for:
 
 #### Methods:
 
-- rhs(t, y)
+- get_species(name)
+
+- dC_dt(t, concentrations)
 
 - simulate()
 
-- plot_concentrations()
-
-- plot_rates()
+- plot_all()
 
 ## Possible Reactions Included
 
