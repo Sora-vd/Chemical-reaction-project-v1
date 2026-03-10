@@ -87,18 +87,20 @@ from reaction import Reaction
 from network import ReactionNetwork
 
 #Create species
-A = Species("A", formula="H2O2", state="aq", c0=1.0)
+A = Species("H2O2")
+B = Species("H2O")
+C = Species("O2")
 
 #Define first-order reaction
 reaction = Reaction(
-    stoich={"A": -1},
+    stoich={"H2O2": -2, "H2O": 2, "O2": 1},
     k=0.2,
-    orders={"A": 1}
+    orders={"H2O2": 1}
 )
 
 #Create network
 network = ReactionNetwork(
-    species=[A],
+    species={A.formula: A, B.formula: B, C.formula: C},
     reactions=[reaction],
     t_start=0,
     t_end=50,
@@ -106,11 +108,10 @@ network = ReactionNetwork(
 )
 
 #Run simulation
-results = network.simulate()
+network.simulate()
 
 #Plot results
-network.plot_concentrations(results)
-network.plot_rates(results)
+network.plot_all()
 ```
 ## Project Structure
 
