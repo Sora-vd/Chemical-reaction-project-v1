@@ -60,6 +60,8 @@ t = time
 
 - Matplotlib
 
+- Pandas
+
 ### Setup
 
 1. Clone the repository:
@@ -76,7 +78,7 @@ pip install -r requirements.txt
 ```
 If you do not have a requirements file: 
 ```bash
-pip install numpy scipy matplotlib
+pip install numpy scipy matplotlib pandas
 ```
 ## Usage Example 
 
