@@ -1,4 +1,4 @@
 formula,compound,c0,k,state,order,reaction_name
 H2O2,Hydrogen Peroxide,1.0,1.5e-3,aq,1,Hydrogen Peroxide Decomposition
-H2O,Water,0,,l,0,
+H2O,Water,0.0,,l,0,
 O2,Oxygen,0.0,,g,0,
