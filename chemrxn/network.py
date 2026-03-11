@@ -39,15 +39,15 @@ class ReactionNetwork:
         """
 
         # Update Species objects with current concentrations 
-        for i, name in enumerate(self._names):
+        for i, name in enumerate(self._names): #enumerate gives index and value of list 
             self.species[name].ct = concentrations[i]
 
         # Initialize total derivates 
         dCdt = {name: 0.0 for name in self._names}
 
         # Sum contributions from each reaction
-        for reaction in self.reactions:
-            reaction_contribution = reaction.dc_dt(self.species)
+        for reaction in self.reactions: #for loop ensures we compute contribution of each reaction to each species before updating concentrations, ensuring simultaneous updates
+            reaction_contribution = reaction.dc_dt(self.species) 
             for name, value in reaction_contribution.items():
                 dCdt[name] += value
 

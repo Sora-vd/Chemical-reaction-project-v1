@@ -7,7 +7,7 @@ from network import ReactionNetwork
 
 
 def load_species(filepath):
-    df = pd.read_csv(filepath, index_col="formula") #load the iput
+    df = pd.read_csv(filepath, index_col="formula") #load the input
 
     species_dict = {
         formula: Species(formula)
